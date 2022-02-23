@@ -24,8 +24,7 @@ let resetButton = document.getElementById("reset-button")
 let chanceArea = document.getElementById("chance-area")
 let chances = 5
 let gameOver = false
-let history = []
-
+let history = [];
 
 
 
@@ -54,6 +53,10 @@ function play() {
 
     chances --
     chanceArea.textContent=`You have ${chances} chances`;
+    if(chances == 0){
+        chanceArea.textContent=`You have ${chances} chances. You Faild`;
+
+    }
     console.log("chance", chances)
 
     if (userValue < computerNum){
@@ -62,7 +65,7 @@ function play() {
         resultArea.textContent = "Down!"
     }else {
         resultArea.textContent = "Correct!"
-        g
+        
     }
 
     history.push(userValue)
@@ -71,7 +74,7 @@ function play() {
     if (chances < 1){
         gameOver=true
     }
-    else if (chances < 2){
+    else if (chances == 1){
         chanceArea.textContent = "Last Chance!!"
         return;
     }
@@ -88,8 +91,16 @@ function reset(){
     //새로운 숫자생성
     pickRandomNum();
 
+    gameOver = false
+    playButton.disabled = false
+    chances = 5
+    chanceArea.textContent=`You have ${chances} chances`;
+    history = [];
+    
+
     resultArea.textContent = "New Game";
 }
+
 pickRandomNum()
 
 
