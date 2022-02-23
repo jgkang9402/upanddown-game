@@ -79,8 +79,9 @@ function play() {
         return;
     }
 
-    if (gameOver == true){
+    if (gameOver == true || computerNum == userInput.value){
         playButton.disabled = true
+
     }
 }
 
