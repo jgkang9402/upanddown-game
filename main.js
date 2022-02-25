@@ -102,7 +102,6 @@ function reset(){
     resultArea.textContent = "New Game";
 }
 
-pickRandomNum()
 
 
 
